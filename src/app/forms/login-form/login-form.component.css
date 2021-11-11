@@ -1,0 +1,12 @@
+.example-card {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+  button{
+      background-color: rgb(213, 213, 213);
+      margin-left: 10px;
+  }
