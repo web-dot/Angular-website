@@ -6,14 +6,14 @@ import { HomeComponent } from './home/home.component';
 // import { ToolbarComponent } from './toolbar/toolbar.component';
 
 const routes: Route[] = [
-  {path: 'forms/login', component: LoginFormComponent},
-  {path: 'forms/login/signup', component: RegFormComponent},
+  // {path: 'forms/login', component: LoginFormComponent},
+  // {path: 'forms/login/signup', component: RegFormComponent},
   {path: 'home', component: HomeComponent},
-  {path: '', component: HomeComponent}
-  // {
-  //   path: 'forms',
-  //   loadChildren: () => import('src/app/forms/forms-routing.module').then(m => m.FormsRoutingModule)
-  // }
+  {path: '', component: HomeComponent},
+  {
+    path: 'forms',
+    loadChildren: () => import('src/app/forms/forms-routing.module').then(m => m.FormsRoutingModule)
+  }
 ]; //configures routes
 
 @NgModule({
