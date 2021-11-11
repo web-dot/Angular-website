@@ -22,7 +22,9 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     ToolbarComponent,
-    HomeComponent
+    HomeComponent,
+    LoginFormComponent,
+    RegFormComponent
   ],
   imports: [
     BrowserModule,
