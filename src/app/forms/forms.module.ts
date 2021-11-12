@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsComponent } from './forms.component';
+import { MaterialExampleModule } from '../material-module';
 
 
 
@@ -23,14 +24,8 @@ import { FormsComponent } from './forms.component';
   imports: [
     CommonModule,
     FormsRoutingModule,
-    MatCardModule,
     ReactiveFormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule
+    MaterialExampleModule
   ]
 })
 export class FormsModule { }
