@@ -7,6 +7,7 @@ mat-toolbar{
     border-radius: 30px;
     border: 0.3px solid rgb(0, 176, 64);
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 hr{
     border: 0.3 ps solid rgb(227, 227, 227);

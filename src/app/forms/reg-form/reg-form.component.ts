@@ -10,6 +10,8 @@ export class RegFormComponent implements OnInit {
 
   users: User[] = []
   
+  
+  
   regForm =this.fb.group({
     name: ['', [Validators.required, Validators.minLength(6)]],
     uname: ['',[Validators.required, Validators.minLength(4)]],
@@ -26,9 +28,19 @@ export class RegFormComponent implements OnInit {
    
   }
 
+
+
+  // eventlistener = function(){
+  //   document.querySelector("form")?.addEventListener('keyup', (e) => {
+  //     let targetelement = e.target;
+  //       if(targetelement != null){
+  //         let email = targetelement.
+  //       }
+  //   })
+  // }
+
   submit(){
     let user = this.regForm.value;
-    //console.warn(user);
     console.log(user);
     this.users.push(user); 
     this.reset();
