@@ -21,4 +21,37 @@ export class ForgPassComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submit(){
+    let fuser = this.forgot.value;
+    console.log(fuser);
+    this.reset();
+    let rawusers = localStorage.getItem('usersDB');
+    if(rawusers != null){
+      let users = JSON.parse(rawusers);
+      console.log(users);
+
+      for(let user of users){
+        if(user["email"] === fuser["email"]){
+          user["pass"] = fuser["pass"];
+          console.log(fuser["pass"])
+          alert("password has updated");
+          break;
+        }
+        else{
+          alert("this email is not registered");
+        }
+        localStorage.setItem('usersDB', JSON.stringify(users)); 
+      }
+  }
+    
+  }
+  reset(){
+    this.forgot.reset();
+  }
+
+
+}
+export interface User{
+  name: string;
+  password: string;
 }
