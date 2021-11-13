@@ -1,3 +1,12 @@
 .example-spacer {
     flex: 1 1 auto;
 }
+mat-toolbar{
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    border: 0.3px solid rgb(0, 157, 255);
+    margin-top: 10px;
+}
+hr{
+    border: 0.3 ps solid rgb(227, 227, 227);
+}

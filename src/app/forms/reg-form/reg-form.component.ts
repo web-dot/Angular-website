@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reg-form',
@@ -10,22 +10,26 @@ export class RegFormComponent implements OnInit {
 
   users: User[] = []
   
-
-  regForm = new FormGroup({
-    name: new FormControl(''),
-    uname: new FormControl(''),
-    email: new FormControl(''),
-    pass: new FormControl('')
+  regForm =this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(6)]],
+    uname: ['',[Validators.required, Validators.minLength(4)]],
+    email: ['', [Validators.required, Validators.email]],
+    pass: ['', [Validators.required, Validators.pattern(/^[\w@-]{6,20}$/)]]
   })
 
-  constructor() { }
+
+  constructor(private fb: FormBuilder) {
+  
+   }
 
   ngOnInit(): void {
-
+   
   }
 
   submit(){
-    let user = this.regForm.value; //obj
+    let user = this.regForm.value;
+    //console.warn(user);
+    console.log(user);
     this.users.push(user); 
     this.reset();
     localStorage.setItem('usersDB', JSON.stringify(this.users));

@@ -6,8 +6,8 @@ body{ margin: 0px;
     padding: 0px; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
-button{
+.material-icons-outlined{
     background-color: transparent;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 199, 90);
     border: none;
 }

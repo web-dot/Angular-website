@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -15,24 +15,21 @@ export class LoginFormComponent implements OnInit {
 
 loginAudit: UserLogin[] =[];
 
-loginForm = new FormGroup({
-  email : new FormControl(''),
-  pass : new FormControl('')
-});  
+loginForm = this.fb.group({
+  email:['', [Validators.required, Validators.email]],
+  pass: ['', Validators.pattern(/^[\w@-]{6,20}$/)]
+})
+ 
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
 
   }
-
-
-
   submit(){
     let login: any;
     login = this.loginForm.value;
     login.time = new Date();
-    
     console.log(login);
     console.log(localStorage.getItem('usersDB'));
     let rawusers = localStorage.getItem('usersDB');
@@ -44,33 +41,11 @@ loginForm = new FormGroup({
       let users = JSON.parse(rawusers);
       console.log(users);
       let flag: boolean = false;
-      for(let user of users){
-        console.log(user);
-        if(user["email"] === login["email"] && user["pass"] === login["pass"]){
-          alert('login successfull');
-        }
-        if(user["email"] === login["email"]){
-          flag = true;
-          if(user["pass"] != login["pass"]){
-            flag = false;
-          }
-        }
-      }
-      if(flag == false){
-        alert("check password");
-      }
-
-      
     }
-    
-
     this.loginAudit.push(login);
     this.reset();
-
     console.log(this.loginAudit);
   }
-
-    
   reset(){
     this.loginForm.reset();
   }
