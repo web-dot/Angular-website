@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { MaterialExampleModule } from './material-module';
 import { FooterComponent } from './footer/footer.component';
+import { BugreportComponent } from './bugreport/bugreport.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     ToolbarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    BugreportComponent
   ],
   imports: [
     BrowserModule,

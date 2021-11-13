@@ -20,3 +20,9 @@ hr{
     border-radius: 30px;
     padding: 0px 5px 0px 5px;
 }
+.material-icons-outlined{
+    background-color: transparent;
+    color: rgb(0, 199, 90);
+    border: none;
+}
+
