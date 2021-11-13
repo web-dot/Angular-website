@@ -1,7 +1,7 @@
 .example-card {
   max-width: 400px;
   margin: auto;
-  border: 0.5px solid rgb(0, 166, 255);
+  border: 0.1px solid rgba(0, 77, 125, 0.5);
 }
 button{
     background-color: rgb(114, 173, 247);

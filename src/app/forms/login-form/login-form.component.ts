@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder} from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'app-login-form',
@@ -31,7 +32,7 @@ loginForm = this.fb.group({
     login = this.loginForm.value;
     login.time = new Date();
     console.log(login);
-    console.log(localStorage.getItem('usersDB'));
+    //console.log(localStorage.getItem('usersDB'));
     let rawusers = localStorage.getItem('usersDB');
 
     if(rawusers == null){
@@ -40,11 +41,25 @@ loginForm = this.fb.group({
     else{
       let users = JSON.parse(rawusers);
       console.log(users);
+      let test: boolean = false;
+      for(let user of users){
+        if(login["email"] === user["email"] && login["pass"] === user["pass"]){
+          alert("login successful");
+          test=true;
+        }
+        if(login["email"] != user["email"]){
+          alert("kindly sign up to login");
+          test = true;
+        }
+      }
+      if(test == false){
+        alert("kindly check pass");
+      }
       let flag: boolean = false;
     }
     this.loginAudit.push(login);
     this.reset();
-    console.log(this.loginAudit);
+    //console.log(this.loginAudit);
   }
   reset(){
     this.loginForm.reset();
