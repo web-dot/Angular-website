@@ -36,7 +36,7 @@ loginForm = this.fb.group({
     let rawusers = localStorage.getItem('usersDB');
 
     if(rawusers == null){
-      console.log("kindly register to login")
+      alert("kindly register to login")
     }
     else{
       let users = JSON.parse(rawusers);
