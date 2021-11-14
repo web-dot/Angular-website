@@ -15,3 +15,12 @@ div{
 .mat-card-title{
     text-align: center;
 }
+mat-card-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  button{
+    background-color: rgb(114, 173, 247);
+}
