@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder} from '@angular/forms';
+import { FormBuilder, FormControl} from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { iif } from 'rxjs';
 
@@ -27,6 +27,7 @@ loginForm = this.fb.group({
   ngOnInit(): void {
 
   }
+  
   submit(){
     let login: any;
     login = this.loginForm.value;
@@ -43,23 +44,24 @@ loginForm = this.fb.group({
       console.log(users);
       let test: boolean = false;
       for(let user of users){
+        console.log(user["email"]);
         if(login["email"] === user["email"] && login["pass"] === user["pass"]){
           alert("login successful");
           test=true;
+          break;
         }
-        if(login["email"] != user["email"]){
-          alert("kindly sign up to login");
+        else if(login["email"] === user["email"] && login["pass"] != user["pass"]){
+          alert("kindly check pass");
           test = true;
+          break;
         }
       }
-      if(test == false){
-        alert("kindly check pass");
+      if(test== false){
+        alert("kindly check email")
       }
-      let flag: boolean = false;
     }
     this.loginAudit.push(login);
     this.reset();
-    //console.log(this.loginAudit);
   }
   reset(){
     this.loginForm.reset();

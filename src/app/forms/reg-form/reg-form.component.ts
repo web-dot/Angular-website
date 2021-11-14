@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-reg-form',
@@ -10,6 +10,21 @@ export class RegFormComponent implements OnInit {
 
   users: User[] = []
   
+  email = '';
+  
+  getmail(event : any){
+    this.email += event.target.value;
+    console.log(event.target.value);
+    let rawusers = localStorage.getItem('usersDB');
+    if(rawusers != null){
+      let users = JSON.parse(rawusers);
+      for(let user of users){
+        if(this.email === user["email"]){
+          alert("this email is registered, kindly login");          
+        }
+      }
+    }
+  }
   
   
   regForm =this.fb.group({
