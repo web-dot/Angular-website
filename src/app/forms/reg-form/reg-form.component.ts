@@ -9,9 +9,9 @@ import { FormBuilder, Validators, FormControl } from '@angular/forms';
 export class RegFormComponent implements OnInit {
 
   users: User[] = []
-  
+
   email = '';
-  
+
   getmail(event : any){
     this.email += event.target.value;
     console.log(event.target.value);
@@ -20,13 +20,13 @@ export class RegFormComponent implements OnInit {
       let users = JSON.parse(rawusers);
       for(let user of users){
         if(this.email === user["email"]){
-          alert("this email is registered, kindly login");          
+          alert("this email is registered, kindly login");
         }
       }
     }
   }
-  
-  
+
+
   regForm =this.fb.group({
     name: ['', [Validators.required, Validators.minLength(6)]],
     uname: ['',[Validators.required, Validators.minLength(4)]],
@@ -34,32 +34,27 @@ export class RegFormComponent implements OnInit {
     pass: ['', [Validators.required, Validators.pattern(/^[\w@-]{6,20}$/)]]
   })
 
-
   constructor(private fb: FormBuilder) {
-  
+
    }
 
   ngOnInit(): void {
-   
+
   }
 
-
-
-  // eventlistener = function(){
-  //   document.querySelector("form")?.addEventListener('keyup', (e) => {
-  //     let targetelement = e.target;
-  //       if(targetelement != null){
-  //         let email = targetelement.
-  //       }
-  //   })
-  // }
-
   submit(){
+    //debugger;
     let user = this.regForm.value;
-    console.log(user);
-    this.users.push(user); 
+    let rawusers = localStorage.getItem('usersDB');
+    if(rawusers === null){
+      localStorage.setItem('usersDB', JSON.stringify(this.users))
+    }
+    else{
+      this.users = JSON.parse(rawusers);
+      this.users.push(user);
+      localStorage.setItem('usersDB', JSON.stringify(this.users));
+    }
     this.reset();
-    localStorage.setItem('usersDB', JSON.stringify(this.users));
   }
 
   reset(){
