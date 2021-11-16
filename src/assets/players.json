@@ -1,0 +1,56 @@
+[
+    {
+        "player_id": "1",
+        "player_name": "SC Ganguly",
+        "dob": "8-Jul-72",
+        "batting_hand": "Left_Hand",
+        "bowling_skill": "Right-arm medium",
+        "country": "India",
+        "is_umpire": "0"
+    },
+    {
+        "player_id": "2",
+        "player_name": "BB McCullum",
+        "dob": "27-Sep-81",
+        "batting_hand": "Right_Hand",
+        "bowling_skill": "Right-arm medium",
+        "country": "New Zealand",
+        "is_umpire": "0"
+    },
+    {
+        "player_id": "3",
+        "player_name": "RT Ponting",
+        "dob": "19-Dec-74",
+        "batting_hand": "Right_Hand",
+        "bowling_skill": "Right-arm medium",
+        "country": "Australia",
+        "is_umpire": "0"
+    },
+    {
+        "player_id": "4",
+        "player_name": "DJ Hussey",
+        "dob": "15-Jul-77",
+        "batting_hand": "Right_Hand",
+        "bowling_skill": "Right-arm offbreak",
+        "country": "Australia",
+        "is_umpire": "0"
+    },
+    {
+        "player_id": "5",
+        "player_name": "Mohammad Hafeez",
+        "dob": "17-Oct-80",
+        "batting_hand": "Right_Hand",
+        "bowling_skill": "Right-arm offbreak",
+        "country": "Pakistan",
+        "is_umpire": "0"
+    },
+    {
+        "player_id": "6",
+        "player_name": "R Dravid",
+        "dob": "11-Jan-73",
+        "batting_hand": "Right_Hand",
+        "bowling_skill": "Right-arm offbreak",
+        "country": "India",
+        "is_umpire": "0"
+    }
+]

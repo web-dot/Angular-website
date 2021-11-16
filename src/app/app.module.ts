@@ -1,3 +1,4 @@
+import { PlayersdataService } from './services/playersdata.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,9 @@ import { MaterialExampleModule } from './material-module';
 import { FooterComponent } from './footer/footer.component';
 import { BugreportComponent } from './bugreport/bugreport.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { PlayersComponent } from './players/players.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { BugreportComponent } from './bugreport/bugreport.component';
     ToolbarComponent,
     HomeComponent,
     FooterComponent,
-    BugreportComponent
+    BugreportComponent,
+    PlayersComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +34,11 @@ import { BugreportComponent } from './bugreport/bugreport.component';
     BrowserAnimationsModule,
     MaterialExampleModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PlayersdataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
