@@ -20,14 +20,14 @@ loginForm = this.fb.group({
   email:['', [Validators.required, Validators.email]],
   pass: ['', Validators.pattern(/^[\w@-]{6,20}$/)]
 })
- 
+
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
 
   }
-  
+
   submit(){
     let login: any;
     login = this.loginForm.value;

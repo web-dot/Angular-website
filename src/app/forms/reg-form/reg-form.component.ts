@@ -47,6 +47,7 @@ export class RegFormComponent implements OnInit {
     let user = this.regForm.value;
     let rawusers = localStorage.getItem('usersDB');
     if(rawusers === null){
+      this.users.push(user);
       localStorage.setItem('usersDB', JSON.stringify(this.users))
     }
     else{

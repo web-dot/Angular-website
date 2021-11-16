@@ -15,7 +15,7 @@ export class ForgPassComponent implements OnInit {
     email:['', [Validators.required, Validators.email]],
     pass: ['', Validators.pattern(/^[\w@-]{6,20}$/)]
   })
-  
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -33,17 +33,20 @@ export class ForgPassComponent implements OnInit {
       for(let user of users){
         if(user["email"] === fuser["email"]){
           user["pass"] = fuser["pass"];
-          console.log(fuser["pass"])
+          console.log(user["pass"]);
+          //console.log(fuser["pass"]);
+          //users.push(user);
+          localStorage.setItem('usersDB', JSON.stringify(users));
           alert("password has updated");
           break;
         }
         else{
           alert("this email is not registered");
         }
-        localStorage.setItem('usersDB', JSON.stringify(users)); 
+        //localStorage.setItem('usersDB', JSON.stringify(users));
       }
   }
-    
+
   }
   reset(){
     this.forgot.reset();
