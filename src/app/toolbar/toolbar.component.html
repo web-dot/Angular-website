@@ -8,10 +8,14 @@
     </div>
 
     <!-- menu -->
+    <div>
+    </div>
+    <!-- {{ user | json }} -->
     <div class="navbar-menu">
       <div class="navbar-end">
+        <h2 *ngIf="isLogin" style="margin-top: 6px; color: rgb(255, 255, 255);">{{ user[0].email }} {{ "(" + this.role + ")"  }} &nbsp;</h2>
         <button mat-icon-button routerLink='/players'><mat-icon><span class="material-icons-outlined">sports_cricket</span></mat-icon></button>
-        <button mat-icon-button routerLink='/forms/login'><mat-icon><span class="material-icons-outlined">account_circle</span></mat-icon></button>
+        <button mat-icon-button routerLink='/forms/login' [disabled]="!isLogin"><mat-icon><span class="material-icons-outlined">account_circle</span></mat-icon></button>
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@ import { BugreportComponent } from './bugreport/bugreport.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { PlayersComponent } from './players/players.component';
+import { JsonusersService } from './services/jsonusers.service';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PlayersComponent } from './players/players.component';
     HttpClientModule
   ],
   providers: [
-    PlayersdataService
+    PlayersdataService,
+    JsonusersService
   ],
   bootstrap: [AppComponent]
 })

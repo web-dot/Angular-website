@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl} from '@angular/forms';
+import { JsonusersService } from './../../services/jsonusers.service';
+import { Component, OnInit,Input} from '@angular/core';
+import { FormBuilder} from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { iif } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login-form',
@@ -11,10 +13,20 @@ import { iif } from 'rxjs';
 
 
 
-
+//parent
 export class LoginFormComponent implements OnInit {
 
 loginAudit: UserLogin[] =[];
+login: any = [];
+
+admin: any = {};
+
+currentuser: any = {
+  email : '',
+  password : ''
+}
+
+currentusrarr: any = [];
 
 loginForm = this.fb.group({
   email:['', [Validators.required, Validators.email]],
@@ -22,20 +34,35 @@ loginForm = this.fb.group({
 })
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userService: JsonusersService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getJsonUsers();
+  }
 
+  getJsonUsers(): any{
+    this.userService.getUsers().subscribe(result => {
+      this.admin = result;
+      console.log(this.admin);
+      return result;
+    })
   }
 
   submit(){
     let login: any;
     login = this.loginForm.value;
     login.time = new Date();
-    console.log(login);
-    //console.log(localStorage.getItem('usersDB'));
-    let rawusers = localStorage.getItem('usersDB');
+    this.loginAudit.push(login);
+    this.validateUser();
+    this.reset();
+  }
 
+  validateUser(){
+
+    let login: any;
+    login = this.loginForm.value;
+    console.log(this.loginForm.value);
+    let rawusers = localStorage.getItem('usersDB');
     if(rawusers == null){
       alert("kindly sign-up to login")
     }
@@ -44,13 +71,31 @@ loginForm = this.fb.group({
       console.log(users);
       let test: boolean = false;
       for(let user of users){
-        console.log(user["email"]);
         if(login["email"] === user["email"] && login["pass"] === user["pass"]){
-          alert("login successful");
+          alert("user login successful");
           test=true;
+
+          this.currentuser['email'] = user["email"];
+          this.currentuser['password'] = user["pass"];
+          this.currentusrarr.push(this.currentuser);
+          localStorage.setItem('currentuser', JSON.stringify(this.currentusrarr)) == null ? false : true;
+
+          this.router.navigateByUrl('');
+          //break;
+        }
+        else if(login["email"] === this.admin[0]["email"] && login["pass"] === this.admin[0]["password"]){
+          alert("admin login successful");
+          test=true;
+
+          this.currentuser['email'] = this.admin[0]["email"];
+          this.currentuser['password'] = this.admin[0]["password"];
+          this.currentusrarr.push(this.currentuser);
+          localStorage.setItem('currentuser', JSON.stringify(this.currentusrarr)) == null ? false : true;
+
+          this.router.navigateByUrl('');
           break;
         }
-        else if(login["email"] === user["email"] && login["pass"] != user["pass"]){
+        else if((login["email"] === user["email"] && login["pass"] != user["pass"]) || (login["email"] === this.admin["email"] && login["password"] != this.admin["pass"])){
           alert("kindly check pass");
           test = true;
           break;
@@ -60,9 +105,10 @@ loginForm = this.fb.group({
         alert("kindly check email")
       }
     }
-    this.loginAudit.push(login);
-    this.reset();
   }
+
+
+
   reset(){
     this.loginForm.reset();
   }

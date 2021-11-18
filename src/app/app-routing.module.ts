@@ -1,3 +1,4 @@
+import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { PlayersComponent } from './players/players.component';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
@@ -8,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Route[] = [
   {path: 'home', component: HomeComponent},
   {path: '', component: HomeComponent},
+  {path: 'login', component: LoginFormComponent},
   {path: 'bug', component: BugreportComponent},
   {
     path: 'forms',
