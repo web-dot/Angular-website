@@ -3,8 +3,7 @@ import { PlayersComponent } from './players/players.component';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 import { BugreportComponent } from './bugreport/bugreport.component';
-import { HomeComponent } from './home/home.component';
-// import { ToolbarComponent } from './toolbar/toolbar.component';
+import { HomeComponent } from './homemodule/home/home.component';
 
 const routes: Route[] = [
   {path: 'home', component: HomeComponent},

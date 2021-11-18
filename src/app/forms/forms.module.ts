@@ -1,4 +1,5 @@
-import { ToolbarComponent } from './../toolbar/toolbar.component';
+import { ToolbarmoduleModule } from './../toolbarmodule/toolbarmodule.module';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -18,13 +19,13 @@ import { ForgPassComponent } from './forg-pass/forg-pass.component';
     RegFormComponent,
     FormsComponent,
     ForgPassComponent,
-    //ToolbarComponent
   ],
   imports: [
     CommonModule,
     FormsRoutingModule,
     ReactiveFormsModule,
-    MaterialExampleModule
+    MaterialExampleModule,
+    ToolbarmoduleModule
   ]
 })
 export class FormsModule { }

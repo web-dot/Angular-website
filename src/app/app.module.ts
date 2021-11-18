@@ -1,3 +1,5 @@
+import { ToolbarmoduleModule } from './toolbarmodule/toolbarmodule.module';
+
 import { PlayersdataService } from './services/playersdata.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,10 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './homemodule/home/home.component';
 import { MaterialExampleModule } from './material-module';
 import { FooterComponent } from './footer/footer.component';
 import { BugreportComponent } from './bugreport/bugreport.component';
@@ -22,11 +23,10 @@ import { JsonusersService } from './services/jsonusers.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
     HomeComponent,
     FooterComponent,
     BugreportComponent,
-    PlayersComponent
+    PlayersComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +35,8 @@ import { JsonusersService } from './services/jsonusers.service';
     BrowserAnimationsModule,
     MaterialExampleModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToolbarmoduleModule
   ],
   providers: [
     PlayersdataService,
