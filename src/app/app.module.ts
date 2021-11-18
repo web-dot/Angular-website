@@ -26,7 +26,7 @@ import { JsonusersService } from './services/jsonusers.service';
     HomeComponent,
     FooterComponent,
     BugreportComponent,
-    PlayersComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,6 @@ export class LoginFormComponent implements OnInit {
 
 loginAudit: UserLogin[] =[];
 login: any = [];
-
 admin: any = {};
 
 currentuser: any = {

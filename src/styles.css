@@ -3,11 +3,6 @@
 
 html, body { height: 100%; }
 body{ margin: 0px;
-    padding: 0px; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    padding: 0px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-/* .material-icons-outlined{
-    background-color: transparent;
-    color: rgb(0, 199, 90);
-    border: none;
-} */
