@@ -3,3 +3,6 @@
 .role{
   font-family: 'Lato', sans-serif;
 }
+.navbar{
+  box-shadow: 0 3px 20px 0 #b5b3b3;
+}
