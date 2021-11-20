@@ -1,3 +1,6 @@
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ToolbarmoduleModule } from './toolbarmodule/toolbarmodule.module';
 
 import { PlayersdataService } from './services/playersdata.service';
@@ -18,6 +21,9 @@ import { BugreportComponent } from './bugreport/bugreport.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlayersComponent } from './players/players.component';
 import { JsonusersService } from './services/jsonusers.service';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DialogboxmoduleModule } from './dialogboxmodule/dialogboxmodule.module';
 
 
 @NgModule({
@@ -31,12 +37,19 @@ import { JsonusersService } from './services/jsonusers.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     BrowserAnimationsModule,
     MaterialExampleModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToolbarmoduleModule
+    ToolbarmoduleModule,
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     PlayersdataService,

@@ -6,6 +6,7 @@ import { UsersmoduleRoutingModule } from './usersmodule-routing.module';
 import { UsersComponent } from './users/users.component';
 import { MatTable } from '@angular/material/table';
 import { MaterialExampleModule } from '../material-module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MaterialExampleModule } from '../material-module';
   imports: [
     CommonModule,
     UsersmoduleRoutingModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
   ],
   exports:[
     MatTableModule,

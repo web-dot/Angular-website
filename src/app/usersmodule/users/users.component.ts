@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Users } from 'src/app/Users';
+import { MatTable } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogBoxComponent } from 'src/app/dialogboxmodule/dialogbox/dialogbox.component';
 
 @Component({
   selector: 'app-users',
@@ -12,10 +14,20 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'uname', 'email', 'company', 'action']
   dataSource = new MatTableDataSource<User[]>();
   role: string ='';
-
   userList: any = [];
 
-  constructor() { }
+  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
+
+  constructor(public dialog: MatDialog) { }
+
+  openDialog(action,obj) {
+    obj.action = action;
+    const dialogRef = this.dialog.open(DialogBoxComponent, {
+      width: '250px',
+      data:obj
+    });
+  }
+
 
   ngOnInit(): void {
     this.getUserData();
@@ -26,7 +38,8 @@ export class UsersComponent implements OnInit {
     if(rawusers != null){
       this.userList = JSON.parse(rawusers);
       console.log(this.userList)
-      this.dataSource = new MatTableDataSource<User[]>(this.userList);
+      // this.dataSource = new MatTableDataSource<User[]>(this.userList);
+      this.dataSource = this.userList;
     }
   }
 
