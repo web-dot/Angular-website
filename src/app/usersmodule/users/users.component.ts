@@ -9,10 +9,11 @@ import { Users } from 'src/app/Users';
 })
 export class UsersComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'uname', 'email', 'company']
+  displayedColumns: string[] = ['id', 'name', 'uname', 'email', 'company', 'action']
   dataSource = new MatTableDataSource<User[]>();
   role: string ='';
-  // usersList: User[] = [];
+
+  userList: any = [];
 
   constructor() { }
 
@@ -23,9 +24,21 @@ export class UsersComponent implements OnInit {
   getUserData(){
     let rawusers = localStorage.getItem('usersDB');
     if(rawusers != null){
-      let usersList = JSON.parse(rawusers);
-      usersList.push()
-      this.dataSource = new MatTableDataSource<User[]>(usersList);
+      this.userList = JSON.parse(rawusers);
+      console.log(this.userList)
+      this.dataSource = new MatTableDataSource<User[]>(this.userList);
+    }
+  }
+
+  edit(){
+
+  }
+
+  deleterow(rowid: number){
+    if(rowid > -1){
+      this.userList.splice(rowid, 1);
+      localStorage.setItem('usersDB', JSON.stringify(this.userList));
+      this.dataSource = this.userList
     }
   }
 
