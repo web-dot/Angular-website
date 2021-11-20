@@ -12,7 +12,8 @@ import { DialogBoxComponent } from 'src/app/dialogboxmodule/dialogbox/dialogbox.
 export class UsersComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'uname', 'email', 'company', 'action']
-  dataSource = new MatTableDataSource<User[]>();
+  // dataSource = new MatTableDataSource<User[]>();
+  dataSource : any[] = []
   role: string ='';
   userList: any = [];
 
@@ -22,9 +23,35 @@ export class UsersComponent implements OnInit {
 
   openDialog(action,obj) {
     obj.action = action;
-    const dialogRef = this.dialog.open(DialogBoxComponent, {
+    let  dialogRef = this.dialog.open(DialogBoxComponent, {
       width: '250px',
       data:obj
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+     if(result.event == 'Update'){
+       console.log(result.data)
+        this.updateRowData(result.data);
+      }else if(result.event == 'Delete'){
+        this.deleteRowData(result.data);
+      }
+    });
+  }
+
+  updateRowData(row_obj){
+    this.dataSource = this.dataSource.filter((value,key)=>{
+      console.log(value.id);
+      console.log(row_obj.id);
+      if(value.id == row_obj.id){
+        value.name = row_obj.name;
+
+      }
+      return true;
+    });
+  }
+  deleteRowData(row_obj){
+    this.dataSource = this.dataSource.filter((value,key)=>{
+      return value.id != row_obj.id;
     });
   }
 
@@ -43,17 +70,7 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  edit(){
 
-  }
-
-  deleterow(rowid: number){
-    if(rowid > -1){
-      this.userList.splice(rowid, 1);
-      localStorage.setItem('usersDB', JSON.stringify(this.userList));
-      this.dataSource = this.userList
-    }
-  }
 
 }
 
@@ -62,7 +79,5 @@ export interface User{
   name: string;
   uname: string;
   email: string;
-  pass: string;
-  role: string,
   company: string;
 }

@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    DialogBoxComponent
+    DialogBoxComponent,
   ],
   imports: [
     CommonModule,
