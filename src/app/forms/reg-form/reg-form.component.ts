@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reg-form',
@@ -31,12 +32,13 @@ export class RegFormComponent implements OnInit {
   emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   regForm =this.fb.group({
     name: [null, [Validators.required, Validators.minLength(6)]],
-    uname: ['',[Validators.required, Validators.minLength(4)]],
-    email: ['', [Validators.required, Validators.pattern(this.emailregex)]],
-    pass: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/)]]
+    uname: [null,[Validators.required, Validators.minLength(4)]],
+    email: [null, [Validators.required, Validators.pattern(this.emailregex)]],
+    pass: [null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/)]],
+    company: [null, [Validators.required]]
   })
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
 
    }
 
@@ -58,6 +60,7 @@ export class RegFormComponent implements OnInit {
       localStorage.setItem('usersDB', JSON.stringify(this.users));
     }
     this.reset();
+    this.router.navigateByUrl('');
   }
 
   reset(){

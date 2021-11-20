@@ -9,7 +9,12 @@
       <mat-card-content>
 
         <form [formGroup]='regForm' (ngSubmit)="submit()">
+          <div class="col-md-4">
 
+          </div>
+          <div class="col-md-4">
+
+          </div>
             <mat-form-field appearance="fill">
               <mat-label>Name</mat-label>
               <input type="text" matInput placeholder="Enter Your Name" formControlName="name" required>
@@ -36,12 +41,18 @@
             </mat-form-field>
 
             <mat-form-field appearance="fill">
+              <mat-label>Company</mat-label>
+              <input type="text" matInput placeholder="company" formControlName="company" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
                 <input type="password" matInput placeholder="Enter Password" formControlName="pass" required>
                 <mat-error *ngIf="!regForm.controls['pass'].valid && regForm.controls['pass'].touched">
                   {{ getErrorPassword() }}
                 </mat-error>
             </mat-form-field><br>
+
             <br>
             <button type="submit" [disabled]="!regForm.valid" mat-button>REGISTER</button><br>
             <small>Form Status: {{ regForm.status }}</small>

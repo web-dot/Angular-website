@@ -1,3 +1,4 @@
+import { UsersmoduleModule } from './usersmodule/usersmodule.module';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { PlayersComponent } from './players/players.component';
 import { Component, NgModule } from '@angular/core';
@@ -17,6 +18,10 @@ const routes: Route[] = [
   {
     path: 'players',
     component: PlayersComponent
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('src/app/usersmodule/usersmodule.module').then(m => m.UsersmoduleModule)
   }
 ]; //configures routes
 

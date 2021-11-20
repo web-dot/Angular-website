@@ -63,7 +63,8 @@ loginForm = this.fb.group({
     console.log(this.loginForm.value);
     let rawusers = localStorage.getItem('usersDB');
     if(rawusers == null){
-      alert("kindly sign-up to login")
+      alert("kindly sign-up to login");
+      this.router.navigateByUrl('');
     }
     else{
       let users = JSON.parse(rawusers);
