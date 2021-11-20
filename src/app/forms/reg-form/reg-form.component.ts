@@ -49,6 +49,7 @@ export class RegFormComponent implements OnInit {
 
   submit(){
     let user = this.regForm.value;
+    user.id = Date.now();
     console.log(user);
     let rawusers = localStorage.getItem('usersDB');
     if(rawusers === null){

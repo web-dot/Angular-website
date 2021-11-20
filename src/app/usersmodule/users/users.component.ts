@@ -45,6 +45,7 @@ export class UsersComponent implements OnInit {
 }
 
 export interface User{
+  id: number;
   name: string;
   uname: string;
   email: string;
