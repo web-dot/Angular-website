@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Users } from 'src/app/Users';
 
 @Component({
   selector: 'app-users',
@@ -31,9 +32,10 @@ export class UsersComponent implements OnInit {
 }
 
 export interface User{
-  name:'';
-  uname:'';
-  email:'';
-  pass:'';
-  company:'';
+  name: string;
+  uname: string;
+  email: string;
+  pass: string;
+  role: string,
+  company: string;
 }

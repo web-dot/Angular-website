@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Users } from 'src/app/Users';
 
 @Component({
   selector: 'app-reg-form',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegFormComponent implements OnInit {
 
-  users: User[] = []
+  users: Users[] = []
   titleAlert: string = 'This field is required';
 
   email = '';
@@ -80,11 +81,4 @@ export class RegFormComponent implements OnInit {
 
 
 
-}
-
-export interface User{
-  name: string;
-  uname: string;
-  email: string;
-  password: string;
 }
