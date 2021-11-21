@@ -1,9 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Lato:wght@300&family=Roboto+Condensed:wght@300&display=swap');
+
+
 table {
   width: 90%;
   margin: auto;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 .btn-edit {
   text-align: right;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 h2 {
   text-align: center;
@@ -18,16 +24,35 @@ h2 {
 }
 
 .button-add-row {
-  background: #1b9e1b;
-  color: #ffffff;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  border-radius: 0em;
 }
 
 .button-remove-rows {
-  background: red;
+  background: rgb(72, 72, 72);
   color: #ffffff;
   margin-right: 5px;
+  border-radius: 0em;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .button-remove {
   color: red;
+  margin-right: 1em;
+  border-radius: 0em;
+  font-family: 'Lato', sans-serif;
+}
+.button-edit{
+  font-family: 'Roboto Condensed', sans-serif;
+  border-radius: 0em;
+}
+mat-card-title{
+  font-family: 'Lato', sans-serif;
+  margin-left: 3em;
+}
+mat-card{
+  margin-top: 4em;
+  font-family: 'Lato', sans-serif;
 }

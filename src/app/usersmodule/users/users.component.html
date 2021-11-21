@@ -1,11 +1,15 @@
 
 <app-dashnav></app-dashnav>
 
+
+
+<mat-card>
+  <mat-card-title>Manage</mat-card-title>
+
 <article>
-  <h2>Editable Dynamic Table</h2>
   <article class="table-header">
-    <button class="button-remove-rows" mat-button (click)="removeSelectedRows()">Remove Rows</button>
-    <button class="button-add-row" mat-button (click)="addRow()">Add Row</button>
+    <button mat-raised-button class="button-remove-rows"  (click)="removeSelectedRows()">Remove Rows</button>
+    <button mat-raised-button class="button-add-row" (click)="addRow()">Add Row</button>
   </article>
   <table mat-table [dataSource]="dataSource">
     <ng-container [matColumnDef]="col" *ngFor="let col of displayedColumns">
@@ -20,8 +24,8 @@
             <mat-checkbox (change)="element.isSelected = $event.checked"></mat-checkbox>
           </ng-container>
           <div class="btn-edit" *ngSwitchCase="'isEdit'">
-            <button mat-button class="button-remove" (click)="removeRow(element.id)">Delete</button>
-            <button (click)="element.isEdit = !element.isEdit">Edit</button>
+            <button mat-raised-button class="button-remove" (click)="removeRow(element.id)">Delete</button>
+            <button mat-raised-button class="button-edit" (click)="element.isEdit = !element.isEdit">Edit</button>
           </div>
           <span *ngSwitchDefault>
             {{element[col]}}
@@ -31,7 +35,7 @@
               <div *ngSwitchCase="'isSelected'">
               </div>
               <div class="btn-edit" *ngSwitchCase="'isEdit'">
-                <button (click)="editRow(element)">Done</button>
+                <button mat-raised-button (click)="editRow(element)">Done</button>
               </div>
               <mat-form-field *ngSwitchCase="'date'" appearance="fill">
                 <mat-label>Choose a date</mat-label>
@@ -50,3 +54,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </article>
+</mat-card>

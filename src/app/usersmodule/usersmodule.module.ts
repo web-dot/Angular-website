@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { DashnavModule } from './../dashnav/dashnav.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -14,6 +15,7 @@ import { UsersComponent } from './users/users.component';
 import { MatTable } from '@angular/material/table';
 import { MaterialExampleModule } from '../material-module';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatCheckboxModule,
     MatInputModule,
-    DashnavModule
+    DashnavModule,
+    MatCardModule,
+    MatButtonModule
   ],
   exports:[
     MatTableModule,
