@@ -1,13 +1,12 @@
-
-import { Router, RouterModule } from '@angular/router';
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-toolbar',
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.css']
+  selector: 'app-dashnav',
+  templateUrl: './dashnav.component.html',
+  styleUrls: ['./dashnav.component.css']
 })
-export class ToolbarComponent implements OnInit {
+export class DashnavComponent implements OnInit {
   @Input() user?: any = {};
   role: string = '';
   isLogin: boolean = true;
@@ -37,9 +36,4 @@ export class ToolbarComponent implements OnInit {
 
 
 
-}
-
-export interface User{
-  email : '';
-  password : '';
 }

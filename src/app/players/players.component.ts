@@ -15,7 +15,7 @@ export class PlayersComponent implements OnInit {
   displayedColumns: string[] = ['player_id', 'player_name', 'dob', 'batting_hand'];
   dataSource = new MatTableDataSource<Player[]>();
   playerList: any[] = [];
-
+  user: any;
 
 
   constructor(private playersService: PlayersdataService) { }

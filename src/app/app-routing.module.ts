@@ -1,3 +1,4 @@
+import { AdmindashComponent } from './admindash/admindash.component';
 import { UsersmoduleModule } from './usersmodule/usersmodule.module';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { PlayersComponent } from './players/players.component';
@@ -11,6 +12,7 @@ const routes: Route[] = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginFormComponent},
   {path: 'bug', component: BugreportComponent},
+  { path: 'admin', component: AdmindashComponent},
   {
     path: 'forms',
     loadChildren: () => import('src/app/forms/forms.module').then(m => m.FormsModule)

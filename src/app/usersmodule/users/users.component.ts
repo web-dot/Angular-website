@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   role: string ='';
   userList: any = [];
 
+
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
 
   constructor(public dialog: MatDialog) { }

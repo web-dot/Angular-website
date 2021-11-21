@@ -1,3 +1,5 @@
+import { DashnavComponent } from './../dashnav/dashnav.component';
+import { ToolbarmoduleModule } from './../toolbarmodule/toolbarmodule.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
@@ -10,13 +12,14 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     CommonModule,
     UsersmoduleRoutingModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    ToolbarmoduleModule
   ],
   exports:[
     MatTableModule,

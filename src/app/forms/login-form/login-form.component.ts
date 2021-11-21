@@ -57,7 +57,6 @@ loginForm = this.fb.group({
   }
 
   validateUser(){
-
     let login: any;
     login = this.loginForm.value;
     console.log(this.loginForm.value);
@@ -92,7 +91,7 @@ loginForm = this.fb.group({
           this.currentusrarr.push(this.currentuser);
           localStorage.setItem('currentuser', JSON.stringify(this.currentusrarr)) == null ? false : true;
 
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/admin');
           break;
         }
         else if((login["email"] === user["email"] && login["pass"] != user["pass"]) || (login["email"] === this.admin["email"] && login["password"] != this.admin["pass"])){

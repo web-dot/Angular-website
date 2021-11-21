@@ -23,6 +23,8 @@ import { PlayersComponent } from './players/players.component';
 import { JsonusersService } from './services/jsonusers.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DashnavComponent } from './dashnav/dashnav.component';
+import { AdmindashComponent } from './admindash/admindash.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FooterComponent,
     BugreportComponent,
     PlayersComponent,
+    DashnavComponent,
+    AdmindashComponent,
   ],
   imports: [
     BrowserModule,
