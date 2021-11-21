@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatTable } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogBoxComponent } from 'src/app/dialogboxmodule/dialogbox/dialogbox.component';
 
 @Component({
   selector: 'app-users',
@@ -21,22 +20,22 @@ export class UsersComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  openDialog(action,obj) {
-    obj.action = action;
-    let  dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '250px',
-      data:obj
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-     if(result.event == 'Update'){
-       console.log(result.data)
-        this.updateRowData(result.data);
-      }else if(result.event == 'Delete'){
-        this.deleteRowData(result.data);
-      }
-    });
-  }
+  // openDialog(action,obj) {
+  //   obj.action = action;
+  //   let  dialogRef = this.dialog.open(DialogBoxComponent, {
+  //     width: '250px',
+  //     data:obj
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(result);
+  //    if(result.event == 'Update'){
+  //      console.log(result.data)
+  //       this.updateRowData(result.data);
+  //     }else if(result.event == 'Delete'){
+  //       this.deleteRowData(result.data);
+  //     }
+  //   });
+  // }
 
   updateRowData(row_obj){
     this.dataSource = this.dataSource.filter((value,key)=>{

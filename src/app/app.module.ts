@@ -23,7 +23,6 @@ import { PlayersComponent } from './players/players.component';
 import { JsonusersService } from './services/jsonusers.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { DialogboxmoduleModule } from './dialogboxmodule/dialogboxmodule.module';
 
 
 @NgModule({
