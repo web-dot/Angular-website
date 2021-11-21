@@ -1,3 +1,4 @@
+import { DashnavModule } from './dashnav/dashnav.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -41,7 +42,6 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     FooterComponent,
     BugreportComponent,
     PlayersComponent,
-    DashnavComponent,
     AdmindashComponent,
     UserdashComponent,
     ConfirmDialogComponent,
@@ -69,6 +69,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     FormsModule,
     MatCheckboxModule,
     MatDialogModule,
+    DashnavModule
   ],
   providers: [
     PlayersdataService,

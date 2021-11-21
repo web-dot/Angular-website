@@ -27,13 +27,6 @@
     justify-content: center;
     align-items: center;
   }
-  .ng-valid[required], .ng-valid.required  {
-    border-left: 5px solid #42A948; /* green */
-  }
-
-  .ng-invalid:not(form)  {
-    border-left: 5px solid #ffb638; /* red */
-  }
 
   .alert div {
     background-color: #fed3d3;

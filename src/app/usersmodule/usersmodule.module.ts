@@ -1,3 +1,4 @@
+import { DashnavModule } from './../dashnav/dashnav.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatDatepickerModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    DashnavModule
   ],
   exports:[
     MatTableModule,
