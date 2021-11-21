@@ -1,3 +1,4 @@
+import { UserdashComponent } from './userdash/userdash.component';
 import { AdmindashComponent } from './admindash/admindash.component';
 import { UsersmoduleModule } from './usersmodule/usersmodule.module';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
@@ -12,7 +13,9 @@ const routes: Route[] = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginFormComponent},
   {path: 'bug', component: BugreportComponent},
-  { path: 'admin', component: AdmindashComponent},
+  {path: 'admin', component: AdmindashComponent},
+  {path: 'user', component: UserdashComponent },
+
   {
     path: 'forms',
     loadChildren: () => import('src/app/forms/forms.module').then(m => m.FormsModule)
@@ -25,7 +28,7 @@ const routes: Route[] = [
     path: 'users',
     loadChildren: () => import('src/app/usersmodule/usersmodule.module').then(m => m.UsersmoduleModule)
   }
-]; //configures routes
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

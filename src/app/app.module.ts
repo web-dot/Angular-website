@@ -25,6 +25,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashnavComponent } from './dashnav/dashnav.component';
 import { AdmindashComponent } from './admindash/admindash.component';
+import { UserdashComponent } from './userdash/userdash.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { AdmindashComponent } from './admindash/admindash.component';
     PlayersComponent,
     DashnavComponent,
     AdmindashComponent,
+    UserdashComponent,
   ],
   imports: [
     BrowserModule,

@@ -79,7 +79,7 @@ loginForm = this.fb.group({
           this.currentusrarr.push(this.currentuser);
           localStorage.setItem('currentuser', JSON.stringify(this.currentusrarr)) == null ? false : true;
 
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/user');
           //break;
         }
         else if(login["email"] === this.admin[0]["email"] && login["pass"] === this.admin[0]["password"]){
