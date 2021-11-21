@@ -2,82 +2,82 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatTable } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
+import { User, UserSchema } from 'src/app/model/user';
+import { UserService } from 'src/app/services/user.service';
+
+
+const USER_SCHEMA = {
+  "id": "number",
+  "name": "text",
+  "uname": "text",
+  "email": "text",
+  "company": "text",
+  "isEdit":"isEdit"
+}
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
+
+
+
 export class UsersComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'uname', 'email', 'company', 'action']
-  // dataSource = new MatTableDataSource<User[]>();
-  dataSource : any[] = []
-  role: string ='';
-  userList: any = [];
+  displayedColumns: string[] = Object.keys(UserSchema);
+  dataSchema = UserSchema;
+  dataSource = new MatTableDataSource<User>();
 
+  constructor(public dialog: MatDialog, private userService: UserService) {}
 
-  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
-
-  constructor(public dialog: MatDialog) { }
-
-  // openDialog(action,obj) {
-  //   obj.action = action;
-  //   let  dialogRef = this.dialog.open(DialogBoxComponent, {
-  //     width: '250px',
-  //     data:obj
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(result);
-  //    if(result.event == 'Update'){
-  //      console.log(result.data)
-  //       this.updateRowData(result.data);
-  //     }else if(result.event == 'Delete'){
-  //       this.deleteRowData(result.data);
-  //     }
-  //   });
-  // }
-
-  updateRowData(row_obj){
-    this.dataSource = this.dataSource.filter((value,key)=>{
-      console.log(value.id);
-      console.log(row_obj.id);
-      if(value.id == row_obj.id){
-        value.name = row_obj.name;
-
-      }
-      return true;
-    });
-  }
-  deleteRowData(row_obj){
-    this.dataSource = this.dataSource.filter((value,key)=>{
-      return value.id != row_obj.id;
-    });
+  ngOnInit() {
+    this.userService.getUsers().subscribe((res: User[]) => {
+      this.dataSource.data = res;
+      console.log(this.dataSource.data)
+    })
   }
 
-
-  ngOnInit(): void {
-    this.getUserData();
-  }
-
-  getUserData(){
-    let rawusers = localStorage.getItem('usersDB');
-    if(rawusers != null){
-      this.userList = JSON.parse(rawusers);
-      console.log(this.userList)
-      // this.dataSource = new MatTableDataSource<User[]>(this.userList);
-      this.dataSource = this.userList;
+  editRow(row) {
+    if (row.id === 0) {
+      console.log(row.id)
+      this.userService.addUser(row).subscribe(res => {
+        row.id = res.id;
+        row.isEdit = false;
+      });
+    } else {
+      this.userService.updateUser(row).subscribe(() => row.isEdit = false);
     }
   }
 
+  addRow() {
+    const newRow: User = {id: 0, name: "", email: "", phone: "", isEdit: true, isSelected: false}
+    this.dataSource.data = [newRow, ...this.dataSource.data];
+  }
 
+  removeRow(id) {
+    this.userService.deleteUser(id).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter((u: User) => u.id !== id);
+    });
+  }
 
+  removeSelectedRows() {
+    const users= this.dataSource.data.filter((u: User) => u.isSelected);
+    this.dialog.open(ConfirmDialogComponent).afterClosed().subscribe(confirm => {
+      if (confirm) {
+        this.userService.deleteUsers(users).subscribe(() => {
+          this.dataSource.data = this.dataSource.data.filter((u: User) => !u.isSelected);
+        });
+      }
+    });
+  }
 }
 
-export interface User{
-  id: number;
-  name: string;
-  uname: string;
-  email: string;
-  company: string;
-}
+// export interface User{
+//   id: number;
+//   name: string;
+//   uname: string;
+//   email: string;
+//   company: string;
+// }

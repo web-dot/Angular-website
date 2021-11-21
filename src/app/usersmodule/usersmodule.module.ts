@@ -1,3 +1,7 @@
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashnavComponent } from './../dashnav/dashnav.component';
 import { ToolbarmoduleModule } from './../toolbarmodule/toolbarmodule.module';
 import { NgModule } from '@angular/core';
@@ -10,6 +14,7 @@ import { MatTable } from '@angular/material/table';
 import { MaterialExampleModule } from '../material-module';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     UsersComponent,
@@ -19,7 +24,11 @@ import { FormsModule } from '@angular/forms';
     UsersmoduleRoutingModule,
     MatTableModule,
     FormsModule,
-    ToolbarmoduleModule
+    ToolbarmoduleModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    MatInputModule
   ],
   exports:[
     MatTableModule,
