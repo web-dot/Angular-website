@@ -23,7 +23,6 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     DialogboxmoduleRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
     MatTableModule,
     MatDialogModule,
     MatFormFieldModule,

@@ -8,18 +8,10 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-
   @Input() user?: any = {};
-
   role: string = '';
-
   isLogin: boolean = true;
-
-  constructor(private router: Router) {
-
-
-
-    }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     let rawuser = localStorage.getItem('currentuser');
@@ -34,6 +26,17 @@ export class ToolbarComponent implements OnInit {
       }
     }
   }
+
+  logout(){
+    let loggeduser = JSON.parse(localStorage.getItem('currentuser'));
+    console.log(loggeduser);
+    loggeduser.unshift();
+    this.role = '';
+    localStorage.setItem('currentuser', this.user)
+    location.reload()
+  }
+
+
 
 }
 
