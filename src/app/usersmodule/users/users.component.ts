@@ -27,21 +27,37 @@ const USER_SCHEMA = {
 export class UsersComponent implements OnInit {
 
   displayedColumns: string[] = Object.keys(UserSchema);
+  // dataSource = new MatTableDataSource<User[]>();
+  //dataSource : any[] = []
   dataSchema = UserSchema;
-  dataSource = new MatTableDataSource<User>();
+  //userList: any = [];
+  dataSource = new MatTableDataSource<User>()
 
-  constructor(public dialog: MatDialog, private userService: UserService) {}
 
-  ngOnInit() {
+  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
+
+  constructor(public dialog: MatDialog, private userService: UserService) { }
+
+  ngOnInit(): void {
+    //this.getUserData();
     this.userService.getUsers().subscribe((res: User[]) => {
       this.dataSource.data = res;
       console.log(this.dataSource.data)
     })
   }
 
+  // getUserData(){
+  //   let rawusers = localStorage.getItem('usersDB');
+  //   if(rawusers != null){
+  //     this.userList = JSON.parse(rawusers);
+  //     console.log(this.userList)
+  //     // this.dataSource = new MatTableDataSource<User[]>(this.userList);
+  //     this.dataSource = this.userList;
+  //   }
+  // }
+
   editRow(row) {
     if (row.id === 0) {
-      console.log(row.id)
       this.userService.addUser(row).subscribe(res => {
         row.id = res.id;
         row.isEdit = false;
@@ -52,7 +68,7 @@ export class UsersComponent implements OnInit {
   }
 
   addRow() {
-    const newRow: User = {id: 0, name: "", email: "", phone: "", isEdit: true, isSelected: false}
+    const newRow: User = {id: 0, name: "", uname: "", email: "",company: "", isEdit: true, isSelected: false}
     this.dataSource.data = [newRow, ...this.dataSource.data];
   }
 
@@ -72,6 +88,11 @@ export class UsersComponent implements OnInit {
       }
     });
   }
+
+
+
+
+
 }
 
 // export interface User{

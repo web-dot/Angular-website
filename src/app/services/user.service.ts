@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable, forkJoin } from 'rxjs'
+import { Observable, forkJoin, of } from 'rxjs'
 import { User } from '../model/user'
 
 @Injectable({
@@ -9,25 +9,36 @@ import { User } from '../model/user'
 export class UserService {
   private serviceUrl = 'https://jsonplaceholder.typicode.com/users'
 
+  userList: any = [];
+
+
+  getUserData(){
+    let rawusers = localStorage.getItem('usersDB');
+    if(rawusers != null){
+      this.userList = JSON.parse(rawusers);
+    }
+  }
+  rawusers = JSON.parse(localStorage.getItem('usersDB'));
+
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.serviceUrl)
+    return of(this.rawusers);
   }
 
   updateUser(user: User): Observable<User> {
-    return this.http.patch<User>(`${this.serviceUrl}/${user.id}`, user);
+    return of(this.rawusers);
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.serviceUrl, user);
+    return of(this.rawusers);
   }
 
   deleteUser(id: number): Observable<User> {
-    return this.http.delete<User>(`${this.serviceUrl}/${id}`);
+    return of(this.rawusers);
   }
 
   deleteUsers(users: User[]): Observable<User[]> {
-    return forkJoin(users.map(user => this.http.delete<User>(`${this.serviceUrl}/${user.id}`)))
+    return of(this.rawusers);
   }
 }
