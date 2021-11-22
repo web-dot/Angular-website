@@ -19,6 +19,8 @@ export class LoginFormComponent implements OnInit {
 loginAudit: UserLogin[] =[];
 login: any = [];
 admin: any = {};
+loginsuccess = ""
+
 
 currentuser: any = {
   email : '',
@@ -71,7 +73,7 @@ loginForm = this.fb.group({
       let test: boolean = false;
       for(let user of users){
         if(login["email"] === user["email"] && login["pass"] === user["pass"]){
-          alert("user login successful");
+          //alert("user login successful");
           test=true;
 
           this.currentuser['email'] = user["email"];
@@ -83,7 +85,7 @@ loginForm = this.fb.group({
           //break;
         }
         else if(login["email"] === this.admin[0]["email"] && login["pass"] === this.admin[0]["password"]){
-          alert("admin login successful");
+          //alert("admin login successful");
           test=true;
 
           this.currentuser['email'] = this.admin[0]["email"];
@@ -101,7 +103,7 @@ loginForm = this.fb.group({
         }
       }
       if(test== false){
-        alert("kindly check email")
+        alert("kindly enter correct credentials")
       }
     }
   }
