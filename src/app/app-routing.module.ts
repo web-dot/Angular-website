@@ -1,3 +1,4 @@
+import { UsersTableComponent } from './users-table/users-table/users-table.component';
 import { UserdashComponent } from './userdash/userdash.component';
 import { AdmindashComponent } from './admindash/admindash.component';
 import { UsersmoduleModule } from './usersmodule/usersmodule.module';
@@ -15,6 +16,7 @@ const routes: Route[] = [
   {path: 'bug', component: BugreportComponent},
   {path: 'admin', component: AdmindashComponent},
   {path: 'user', component: UserdashComponent },
+  {path: 'userstable', component: UsersTableComponent},
 
   {
     path: 'forms',

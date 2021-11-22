@@ -16,7 +16,7 @@
         <h2 class="role" *ngIf="isLogin">{{ user[0].email }} {{ "(" + this.role + ")"  }} &nbsp;</h2>
         <!-- <button mat-icon-button routerLink='/players'><mat-icon><span class="material-icons-outlined">sports_cricket</span></mat-icon></button> -->
         <button routerLink='/forms/login' [disabled]="!isLogin"><a>login</a></button>
-        <button routerLink='/home' (click)="logout()" [disabled]="!isLogin"><a>logout</a></button>
+        <!-- <button routerLink='/home' (click)="logout()" [disabled]="!isLogin"><a>logout</a></button> -->
       </div>
     </div>
   </div>

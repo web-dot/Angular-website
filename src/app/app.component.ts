@@ -9,6 +9,15 @@ import { User } from './types/User';
 export class AppComponent {
   title = 'angular-website';
 
+
+  ngOnInit(){
+    // let loggeduser = JSON.parse(localStorage.getItem('currentuser'));
+    // console.log(loggeduser);
+    // loggeduser = [];
+    localStorage.setItem('currentuser', JSON.stringify([]));
+  }
+
+
   user:any;
 
 }

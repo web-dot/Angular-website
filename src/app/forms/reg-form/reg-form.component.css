@@ -62,3 +62,9 @@
   .box{
     border: 1px solid red;
   }
+  mat-label{
+    text-align:left;
+  }
+  /* input{
+    text-align:start;
+  } */

@@ -1,3 +1,4 @@
+import { UsersTableModule } from './users-table/users-table.module';
 import { DashnavModule } from './dashnav/dashnav.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -31,6 +32,7 @@ import { DashnavComponent } from './dashnav/dashnav.component';
 import { AdmindashComponent } from './admindash/admindash.component';
 import { UserdashComponent } from './userdash/userdash.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+
 
 
 
@@ -69,7 +71,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     FormsModule,
     MatCheckboxModule,
     MatDialogModule,
-    DashnavModule
+    DashnavModule,
+    UsersTableModule
   ],
   providers: [
     PlayersdataService,
